@@ -1,0 +1,14 @@
+Apple QuickTime. 
+
+This package automatically disables update checks, both at the system and user level via Activesetup.
+
+
+Updates:
+10/15/15 Potentially disabled/removed the MIME dialog on first run.
+8/12/15 Implemented Activesetup component to disable user-level update checking.
+
+
+
+
+Known issue:
+The first time its run, Quicktime still asks about MIME associations. I'll figure that out someday.
