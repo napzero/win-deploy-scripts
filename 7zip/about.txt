@@ -1,0 +1,6 @@
+7-zip, compressed file manager, open source. 32 or 64 bit.
+
+Maintenance: 
+-Visit website and click Downloads to find the msi versions.
+-Update main.bat
+-Test.
