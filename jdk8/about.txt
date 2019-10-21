@@ -1,0 +1,21 @@
+Java Development Kit 8 series.
+
+
+Package maintenance:
+With a new release, use the shortcut to visit the download page.
+Click to accept the license agreement.
+Download the latest Windows installer files. 
+Place the unmodified exe files here and update the install.bat to 
+match the version number. 
+Test it.
+
+
+
+Please remember that changes to the PATH system variable will be visible upon the next user login.
+
+
+Updates:
+9-25-19 Fixed some behavior related to system PATH variable.
+
+9-6-19 Changed package behavior. Now checks for binaries in expected places before running the install. This greatly improves efficiency, 
+while slightly increasing the chance of a mistake. In the rare event of a problem with a local install, manual intervention would probably be required anyway.

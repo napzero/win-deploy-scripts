@@ -1,0 +1,3 @@
+INSTALL_SILENT=Enable
+AUTO_UPDATE=Disable
+REBOOT=Disable
