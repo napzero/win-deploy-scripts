@@ -39,6 +39,7 @@ IF %allbinfound% EQU 1 call:verifyPath
 IF %allbinfound% EQU 1 color 0a & ECHO JAVA Appears to be installed and up-to-date! Exiting... & timeout 3 & EXIT 0
 
 
+call:killUpdates
 
 ECHO. & ECHO Uninstalling older Java 8 products...
 wmic product where "Name like '%%Java SE Development Kit 8%%'" call uninstall /nointeractive
@@ -61,15 +62,7 @@ PowerShell.exe -Command "[System.Environment]::SetEnvironmentVariable('Path',($e
 echo %path% | find "%_jdkpath%" || SETX PATH "%PATH%;%_jdkpath%" /M
 
 
-
-ECHO Disabling updates...
-taskkill /f /im jusched.exe
-taskkill /f /im jucheck.exe
-taskkill /f /im jaureg.exe
-rmdir /s /q "%ProgramFiles(x86)%\Common Files\Java\Java Update"
-rmdir /s /q "%ProgramFiles%\Common Files\Java\Java Update"
-reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v SunJavaUpdateSched /f
-reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run" /v SunJavaUpdateSched /f
+call:killUpdates
 
 
 ECHO End of script reached.
@@ -79,4 +72,15 @@ EXIT 0
 
 :verifyPath
 echo %path% | find "%_jdkpath%" || SETX PATH "%PATH%;%_jdkpath%" /M
+GOTO:EOF
+
+:killUpdates
+ECHO Disabling updates...
+taskkill /f /im jusched.exe
+taskkill /f /im jucheck.exe
+taskkill /f /im jaureg.exe
+rmdir /s /q "%ProgramFiles(x86)%\Common Files\Java\Java Update"
+rmdir /s /q "%ProgramFiles%\Common Files\Java\Java Update"
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v SunJavaUpdateSched /f
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run" /v SunJavaUpdateSched /f
 GOTO:EOF
