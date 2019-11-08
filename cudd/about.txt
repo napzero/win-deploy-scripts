@@ -1,0 +1,24 @@
+Copy/import User profiles from Drive to Drive. Run from booted target drive.
+
+
+Notes:
+This script is designed to import user profiles from a secondary Windows drive.
+It copies the profile and imports the profile keys from the offline registry hives.
+
+DO NOT transfer user profiles between very different Windows versions,
+like Win7 to 8, 8 to 8.1, 8.1 to 10, or Windows 10 1507 to 1607 (1607+ are ok at this time),
+because this will break things like the Start menu, and you will need to rebuild the profile anyway.
+
+
+
+Suggested procedure:
+Ensure old drive is ready for migration (Adobe and other licensed software uninstalled/deactivated).
+Shut down.
+Disconnect old drive, connect new drive.
+Image new drive.
+Shut down.
+Reconnect old drive but boot to new drive.
+Run this script, selecting the old drive.
+Wait for script to finish work.
+Shut down, remove old drive.
+Label old drive with date, original hostname, and note for later erasure. Store in a secured drawer.
